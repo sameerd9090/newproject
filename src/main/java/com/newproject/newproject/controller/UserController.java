@@ -32,9 +32,8 @@ public class UserController {
 	public ResponseEntity<String> loginUser(@RequestParam("username") String username, @RequestParam("password")String password)
 	{
 		UserEntity userEntity = userService.loginUser(username);
-		if(userEntity.getUserPassword()==password)
-		{   
-			return new ResponseEntity<String>("logged in successfully",HttpStatus.OK);
+		if(userEntity.getUserPassword().equals(password)){   
+		return new ResponseEntity<String>("logged in successfully",HttpStatus.OK);
 		}
 		return new ResponseEntity<String>("Please check your credentials",HttpStatus.NOT_ACCEPTABLE);
 	}

@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 import lombok.Data;
 @Entity
-@Table(name="new_user")
+@Table(name="new_table")
 @Data
 public class UserEntity {
 	@Id
@@ -30,6 +30,11 @@ public class UserEntity {
 	public String toString() {
 		return "UserEntity [userId=" + userId + ", userName=" + userName + ", userEmail=" + userEmail
 				+ ", userPassword=" + userPassword + "]";
+	}
+
+	public String getUserPassword() {
+
+		return null;
 	}
 	
 	
