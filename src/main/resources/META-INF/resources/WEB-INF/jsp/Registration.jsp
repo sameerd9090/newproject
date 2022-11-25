@@ -8,13 +8,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form method="post">
+	${message}
+	<form method="post" action="test">
 		<h2 align="center">Registration Page</h2>
 		<div align="center">
-			First name:<input type="text"><br><br> 
-			Email:<input type="email"><br><br> 
-			Password:  <input type="password"><br><br> 
-<input type="button" value="Register">
+			First name:<input type="text" name="userName"><br><br> 
+			Email:<input type="email" name = "userEmail"><br><br> 
+			Password:  <input type="password" name = "userPassword"><br><br> 
+<input type="submit" value="submit">
 		</div>
 	</form>
 </body>

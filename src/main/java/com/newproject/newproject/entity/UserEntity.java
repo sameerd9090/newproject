@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 import lombok.Data;
 @Entity
-@Table(name="new_table")
+@Table(name="new_user")
 @Data
 public class UserEntity {
 	@Id
@@ -34,7 +34,7 @@ public class UserEntity {
 
 	public String getUserPassword() {
 
-		return null;
+		return userPassword;
 	}
 	
 	
