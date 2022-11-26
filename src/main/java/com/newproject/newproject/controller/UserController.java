@@ -58,4 +58,22 @@ public class UserController {
 		return "Registration";
 	}
 	
+	@GetMapping("/login")
+	public String userLogin()
+	{
+		return "Login";
+	}
+	
+	@PostMapping("/login")
+	public String userLogin0(ModelMap model,@RequestParam("userEmail") String username, @RequestParam("userPassword")String password)
+	{
+		UserEntity userEntity = userService.loginUser(username);
+		if(userEntity.getUserPassword().equals(password))
+		{
+			model.addAttribute("message","User is Logged in successfully..");
+			return "Login";
+		}
+		model.addAttribute("message","Please check your credentials!");
+		return "Login";
+	}
 }
