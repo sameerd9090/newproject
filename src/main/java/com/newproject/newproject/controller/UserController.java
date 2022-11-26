@@ -1,5 +1,9 @@
 package com.newproject.newproject.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -71,9 +75,18 @@ public class UserController {
 		if(userEntity.getUserPassword().equals(password))
 		{
 			model.addAttribute("message","User is Logged in successfully..");
-			return "Login";
+			return "redirect:/getallusers";
 		}
 		model.addAttribute("message","Please check your credentials!");
 		return "Login";
+	}
+	
+	@GetMapping("/getallusers")
+	public String getUsers(HttpServletRequest request)
+	{
+		List<UserEntity> allusers = userService.getAllUsers();
+		request.setAttribute("allusers", allusers);
+		request.setAttribute("message", "Now you can have all the private info of our users!");
+		return "UserList";
 	}
 }

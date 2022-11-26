@@ -1,5 +1,7 @@
 package com.newproject.newproject.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +29,10 @@ public class UserService {
 	public UserEntity loginUser(String username) 
 	{
 	   return userRepo.getByuserEmail(username);
+	}
+
+	public List<UserEntity> getAllUsers() {
+		return userRepo.findAll();
 	}
 
 }
