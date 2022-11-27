@@ -16,6 +16,7 @@ table, th, td {
 <body style="background-color: pink">
 	<div align="center" style="color: Black">
 		<h1>${message}</h1>
+		<h1>${message0}</h1>
 	</div>
 	<div align="center" style="color: red">
 		<h2>Users List</h2>
@@ -27,6 +28,7 @@ table, th, td {
 				<th>User Name</th>
 				<th>User Email</th>
 				<th>User Password</th>
+				<th>Delete User</th>
 			</tr>
 			<c:forEach var="item" items="${allusers}">
 				<tr>
@@ -34,7 +36,8 @@ table, th, td {
 					<td>${item.userName}</td>
 					<td>${item.userEmail}</td>
 					<td>${item.userPassword}</td>
-				</tr>
+					<td><a href="<c:url value='/delete/${item.userId}'/>">Delete</a></td>			
+					</tr>
 			</c:forEach>
 		</table>
 	</div>

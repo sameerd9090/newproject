@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 import lombok.Data;
 @Entity
-@Table(name="new_user")
+@Table(name="new_table")
 @Data
 public class UserEntity {
 	@Id

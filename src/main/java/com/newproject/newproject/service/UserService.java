@@ -34,5 +34,15 @@ public class UserService {
 	public List<UserEntity> getAllUsers() {
 		return userRepo.findAll();
 	}
+	
+	public boolean deleteUser(int id) {
+		try {
+			userRepo.deleteById(id);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
 
 }

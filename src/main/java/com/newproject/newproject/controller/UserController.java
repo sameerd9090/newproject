@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -88,5 +89,21 @@ public class UserController {
 		request.setAttribute("allusers", allusers);
 		request.setAttribute("message", "Now you can have all the private info of our users!");
 		return "UserList";
+	}
+	
+	@GetMapping("/delete/{id}")
+		public String deleteuser(@PathVariable("id") int id, HttpServletRequest request) {
+			System.out.println(id);
+			boolean flag = userService.deleteUser(id);
+			if (flag) {
+				request.setAttribute("message0", "user is deleted succesfully");
+             return "UserList";
+			}else {
+				request.setAttribute("message0", "user is not deleted try agian");
+				return "UserList";
+            }
+			
+			
+		
 	}
 }
