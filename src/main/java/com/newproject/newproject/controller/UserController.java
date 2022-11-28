@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -102,8 +103,25 @@ public class UserController {
 				request.setAttribute("message0", "user is not deleted try agian");
 				return "UserList";
             }
-			
-			
-		
+	}
+	
+	@GetMapping("/update/{id}")
+	public String updateUser(@PathVariable("id") int id,HttpServletRequest request)
+	{
+		List<UserEntity> userEntity = userService.updateUser(id);
+		if(userEntity!=null)
+		{
+			request.setAttribute("userEntity", userEntity);
+			request.setAttribute("updatemessage", "This user is updated successfully!");
+			return "Registration";
+		}
+		request.setAttribute("updatemessage", "This user can't be updated!");
+		return "Registration";
+	}
+	
+	@PostMapping("/update/{id}")
+	public void updateUser0(@ModelAttribute UserEntity userEntity)
+	{
+		userService.saveUser(userEntity);
 	}
 }

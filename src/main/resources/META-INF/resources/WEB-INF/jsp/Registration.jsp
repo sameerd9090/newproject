@@ -9,13 +9,17 @@
 </head>
 <body>
 	${message}
-	<form method="post" action="test">
+	${updatemessage}
+	<form method="post" action="update">
 		<h2 align="center">Registration Page</h2>
 		<div align="center">
-			First name:<input type="text" name="userName"><br><br> 
-			Email:<input type="email" name = "userEmail"><br><br> 
-			Password:  <input type="password" name = "userPassword"><br><br> 
-<input type="submit" value="submit">
+			<c:forEach items="${userEntity}" var="blist">
+			User Id: <input type="number" name="userId" value = "${blist.userId}" >
+			First name:<input type="text" name="userName" value="${blist.userName}"><br>
+			<br> Email:<input type="email" name="userEmail" value = "${blist.userEmail}"><br>
+			<br> Password: <input type="password" name="userPassword" value = "${blist.userPassword}"><br>
+			<br> <input type="submit" value="submit">
+			</c:forEach>
 		</div>
 	</form>
 </body>

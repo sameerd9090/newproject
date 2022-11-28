@@ -28,7 +28,8 @@ table, th, td {
 				<th>User Name</th>
 				<th>User Email</th>
 				<th>User Password</th>
-				<th>Delete User</th>
+				<th>Delete</th>
+				<th>Update</th>
 			</tr>
 			<c:forEach var="item" items="${allusers}">
 				<tr>
@@ -37,6 +38,7 @@ table, th, td {
 					<td>${item.userEmail}</td>
 					<td>${item.userPassword}</td>
 					<td><a href="<c:url value='/delete/${item.userId}'/>">Delete</a></td>			
+					<td><a href="<c:url value='/update/${item.userId}'/>">Update</a></td>			
 					</tr>
 			</c:forEach>
 		</table>

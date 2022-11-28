@@ -45,4 +45,8 @@ public class UserService {
 		}
 	}
 
+	public List<UserEntity> updateUser(int id) {
+		return userRepo.getById(id);
+	}
+
 }
