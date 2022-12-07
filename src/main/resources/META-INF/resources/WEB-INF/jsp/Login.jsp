@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Maai</title>
 </head>
-<body style = "background: pink">
-<h1 align = "center">Login page</h1>
+<body style = "background: green">
+<h1 align = "center">Maai</h1>
   <div align="center" style="background: brown; margin-left:50px; margin-right:50px; margin-top:20px">
   <form method = "post" action="login" style="margin-top:20px">
      <span>Username:</span><input type="text" name="userEmail" style="margin-top:20px"><br><br>

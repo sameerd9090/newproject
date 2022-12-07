@@ -98,7 +98,7 @@ public class UserController {
 			boolean flag = userService.deleteUser(id);
 			if (flag) {
 				request.setAttribute("message0", "user is deleted succesfully");
-             return "UserList";
+             return "redirect:/getallusers";
 			}else {
 				request.setAttribute("message0", "user is not deleted try agian");
 				return "UserList";
